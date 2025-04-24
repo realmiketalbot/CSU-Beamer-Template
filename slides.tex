@@ -1,0 +1,102 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+% other packages
+\usepackage{latexsym,amsmath,xcolor,multicol,booktabs,calligra}
+\usepackage{graphicx,pstricks,listings,stackengine,lmodern}
+\usefonttheme{professionalfonts}
+
+\author{Mike Talbot}
+\title{CSU Beamer Theme}
+\subtitle{Because I Wanted One}
+\institute{Department of Civil \& Environmental Engineering, Colorado State University}
+\date{}
+\usepackage{CSU}
+
+% defs
+\definecolor{csuGreen}{HTML}{1E4D2B} % Replaces deepblue
+\definecolor{aggieOrange}{HTML}{F26322} % Replaces deepred
+\definecolor{csuGold}{HTML}{C8C372} % Replaces deepgreen
+\definecolor{eightyBlack}{gray}{0.2} % Replaces halfgray
+
+\def\cmd#1{\texttt{\color{aggieOrange}\footnotesize $\backslash$#1}}
+\def\env#1{\texttt{\color{csuGreen}\footnotesize #1}}
+
+% bullet colors
+\setbeamercolor{item}{fg=csuGreen}
+\setbeamercolor{alerted text}{fg=aggieOrange}
+
+% notes setup
+%\setbeameroption{show notes on second screen=right}
+
+% define custom title frame with CSU logo
+\newcommand{\csutitlepage}{
+  \begin{frame}
+    \titlepage
+    \vspace{1em}
+    \begin{center}
+      \includegraphics[width=0.2\linewidth]{images/CSU-Symbol-r-357-617-RGB.png}
+    \end{center}
+  \end{frame}
+}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\bfseries\color{csuGreen},
+    emphstyle=\ttfamily\color{aggieOrange},
+    stringstyle=\color{csuGold},
+    numbers=left,
+    numberstyle=\small\color{eightyBlack},
+    rulesepcolor=\color{red!20!green!20!blue!20},
+    frame=shadowbox,
+}
+
+\setlength{\headheight}{12pt} % default is 12pt, increase if needed
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+% bibliography
+\usepackage[backend=biber,style=numeric,citestyle=numeric,sorting=none]{biblatex}
+\addbibresource{refs.bib}
+
+\begin{document}
+    \csutitlepage
+    
+    \begin{frame}
+        \tableofcontents[sectionstyle=show,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+    \end{frame}
+    
+    \section{Background}
+    
+    \begin{frame}{Why Use Beamer?}
+        \begin{itemize}[<+-| alert@+>]
+            \item \LaTeX{} is widely used, and many schools have custom Beamer themes
+            \item For multilingual support, compile with Xe\LaTeX{}
+        \end{itemize}
+    \end{frame}
+    
+    \section{The Theme}
+    
+    \begin{frame}
+        \begin{itemize}
+            \item Some are built-in \LaTeX{} themes
+            \item Others are provided by institutions
+            \item This template is based on the \href{https://www.overleaf.com/latex/templates/muc-beamer-theme/ghchyynrdvwq}{\color{blue}{MUC Beamer Theme}}
+            \item ...which was based on the THU Beamer Theme
+        \end{itemize}
+    \end{frame}
+
+    \section{Bibliography Demonstration}
+
+    \begin{frame}{Citing Placeholder Work}
+        \begin{itemize}
+            \item Doe and Example propose a modular approach~\cite{doe2023framework}
+            \item The definitive guide remains Example~\cite{example2022slides}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[allowframebreaks]{References}
+      \printbibliography
+    \end{frame}
+\end{document}
